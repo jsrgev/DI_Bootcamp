@@ -33,6 +33,10 @@ i {
 	color: #8C7BE7;
 	}
 
+h1, h2 {
+		color: #BF476F;
+}
+
 h1 {
 	display: inline-block;
 	margin: auto;
@@ -75,3 +79,12 @@ footer p {
 	transform: translateX(-50%) translateY(-50%);
 }
 
+input {
+	display: block;
+	margin:1em 0;
+}
+
+button {
+	color: #8C7BE7;
+	font-weight: 700;
+}
