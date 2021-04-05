@@ -1,0 +1,67 @@
+body {
+	font-family: calibri;
+	font-size: 13px;
+}
+
+main > div {
+	display: inline-block;
+	margin: 1rem;
+	position: relative;
+	text-align: center;
+}
+
+img {
+	height: 300px;
+	width: 200px;
+}
+
+.new, .discount {
+	position: absolute;
+	height:40px;
+	width:40px;
+	border-radius:30px;
+	top:10px;
+	color:#fff;
+	font-weight: 700;
+}
+
+.new {
+	background-color: #4B9D86;
+	left:10px;
+}
+
+.discount {
+	background-color: #C53B34;
+	right:10px;
+}
+
+.discount p::before {
+	content: "-"
+}
+
+.discount p::after {
+	content: "%"
+}
+
+
+span {
+	color:gray;
+	font-size:85%;
+    text-decoration: line-through;
+}
+
+.new, button {
+	text-transform: uppercase;
+}
+
+.price::before, span::before {
+	content: "$"
+}
+
+button {
+	background-color: #fff;
+	color:#7A7A7A;
+	border-radius: 4px;
+	border:1px solid #7A7A7A;
+}
+
