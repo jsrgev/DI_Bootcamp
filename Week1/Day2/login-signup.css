@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	font-family: calibri;
 	position: relative;
+    -webkit-text-size-adjust: 100%;}
 	/*height: 100%;*/
 }
 

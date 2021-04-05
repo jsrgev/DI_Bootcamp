@@ -1,0 +1,161 @@
+body {
+	margin:0;
+    font-family: 'Roboto', sans-serif;
+xbackground: #FCFCFC;
+background: -moz-linear-gradient(-45deg, #FCFCFC 0%, #BFBFBF 25%, #FFFFFF 50%, #F0F0F0 65%, #D6D6D6 100%);
+background: -webkit-linear-gradient(-45deg, #FCFCFC 0%, #BFBFBF 25%, #FFFFFF 50%, #F0F0F0 65%, #D6D6D6 100%);
+background: linear-gradient(135deg, #FCFCFC 0%, #BFBFBF 25%, #FFFFFF 50%, #F0F0F0 65%, #D6D6D6 100%);
+}
+
+a {
+	color:#B52F32;
+	text-decoration: none;
+}
+
+header {
+	width:100%;
+	background-color: rgba(226,237,250,.9);
+	display:flex;
+	justify-content: center;
+	position: sticky;
+	top: 0;
+}
+
+nav, h1, h2 {
+    font-family: 'Roboto Slab', serif;
+}
+
+header img {
+	height:130px;
+}
+
+header * {
+	margin:auto;
+}
+
+nav {
+	font-size: 1.5em;
+}
+
+header ul, footer ul {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	text-align: center;
+}
+
+
+header li, footer li {
+	display: inline-block;
+	padding: 0 1em;
+}
+
+
+h1 {
+	font-size: 40px;
+	color:#B52F32;
+   	text-align: center;
+}
+
+section {padding:0 1em;}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;}
+
+#drawing {
+	float:right;
+	width:20%;
+	padding-left: 1em;
+}
+
+#actor {
+	float:left;
+	width:20%;
+	padding-right: 1em;
+}
+
+p:nth-of-type(even), section li:nth-of-type(odd) {
+	color:#2B98FA;
+}
+
+footer {
+	background-color: rgba(226,237,250,.9);
+	padding:2em 1em;
+	display: flex;
+	justify-content: center;
+	gap:3em;
+}
+
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+	header img {
+		height:90px;
+	}
+	#drawing, #actor {
+		width:25%;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+	header img {
+		height:90px;
+		margin-left:1em;
+	}
+	#drawing, #actor {
+		width:30%;
+	}
+	nav {
+		font-size: 1.3em;
+	}
+	footer div {
+		min-width:120px;
+			}
+	footer {
+		padding:1.5em 1em;
+	}
+
+}
+
+@media all and (max-width: 480px) {
+	header {
+		flex-wrap: wrap;
+		position: static;
+	}
+
+	header img {
+		height:90px;
+		margin-left:auto;
+	}
+
+	nav {
+		font-size: 1.1em;
+		margin-bottom: .4em;
+	}
+
+	h1 {
+		margin: 0.5em 0;
+	}
+
+	#drawing {
+		width:35%;
+	}
+
+	#actor {
+		width:50%;
+		float:none;
+		display: block;
+		margin:auto;
+	}
+
+	footer {
+		padding:1em;
+		flex-wrap: wrap;
+		gap:1em;
+	}
+
+}
+
+
+
