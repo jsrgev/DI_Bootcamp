@@ -1,0 +1,64 @@
+h1 {
+	text-align:center;
+	color:#88adee;
+}
+
+body {
+	font-family: calibri;
+}
+
+div {
+	margin: 1em 0;
+}
+
+ul,ol {
+	padding-left: 20px;
+	display:inline;
+}
+
+li {
+	background-color: #e2e2fd;
+	display:inline-block;
+	padding:8px 15px;
+	border-radius:15px;
+	transition: transform .2s;
+}
+
+div:nth-of-type(odd) li:nth-of-type(even), div:nth-of-type(even) li:nth-of-type(odd) {
+	background-color: #88adee;
+}
+
+li:hover {
+	transform: rotate(-20deg) scale(1.08,1.08);
+	border: 3px solid aqua;
+	padding: 5px 12px;
+}
+
+#box1 {
+	background-color:gray;
+	width:300px;
+	height:150px;
+}
+
+#box2 {
+	background-color: blue;
+	width:100px;
+	height:100px;
+}
+
+#box3 {
+	background-color: orange;
+	width:100px;
+	height:100px;
+	position: relative;
+	top:10px;
+	left:10px;
+}
+
+
+
+
+
+
+
+

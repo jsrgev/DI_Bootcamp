@@ -1,0 +1,42 @@
+body {
+	margin: 0;
+	font-family: calibri;
+}
+
+header {
+	padding: 10px;
+	background-color: #EFEFEF;
+	height: 80px;
+	position: relative;
+}
+
+header > * {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+i {
+	xfloat:left;
+	color: #8C7BE7;
+	}
+
+h1 {
+	display: inline-block;
+	xfloat:right;
+	margin: auto;
+	color: #BF476F;
+	}
+
+nav {
+	float:right;
+	color: #8C7BE7;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	display: inline-block;
+}
