@@ -61,8 +61,7 @@ header p {
 }
 
 img {
-	height:150px;
-	width:150px;
+	width:40%;
 	border:3px solid white;
 	margin:2rem;
 }
@@ -108,6 +107,10 @@ i ~ span {
 
 .social {
 	justify-content: space-evenly;
+}
+
+.contact {
+	flex-basis: 100%;
 }
 
 a {
@@ -210,7 +213,7 @@ textarea {
 }
 
 
-@media all and (max-height: 700px) {
+@media all and (max-height: 550px) {
 	header, footer {
 		position:static;
 		right:auto;
@@ -219,27 +222,44 @@ textarea {
 		background-color: #1778B5;
 		display:flex;
 		flex-direction: row-reverse;
-		align-items: center;
-		height:auto;
-		padding: 1rem;
+		padding:.5rem;}
+	main {
+		position:static;
+		width: 100%;
+		margin: 1rem;
+		display:grid;
+		gap:3em;
+		}
+	img {
+		margin:0;
+		order:5;
+	}
+	.contact {flex-basis: auto;}
+}
+
+
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+	img {
+		height:100px;
+		width:100px;
+	}
 	}
 
-main {
-	position: static;
-	width: 100%;
-	margin: 1rem;
-	display:grid;
-	gap:3em;
+@media all and (min-width: 768px) and (max-width: 1024px) {
+	img {
+		height:75px;
+		width:75px;
+	}
+	}
 
- }
+@media all and (min-width: 480px) and (max-width: 768px) {
+	img {
+		height:50px;
+		width:50px;
+	}
+	}
 
-
-@media all and (min-width: 1024px) and (max-width: 1280px) { }
-
-@media all and (min-width: 768px) and (max-width: 1024px) { }
-
-@media all and (min-width: 480px) and (max-width: 768px) { }
-
-@media all and (max-width: 480px) { }
+@media all and (max-width: 480px) {
+	}
 
 
