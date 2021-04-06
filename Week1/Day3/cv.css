@@ -29,9 +29,6 @@ main {
 	margin: 1rem 50px 0 100px;
 	display:grid;
 	gap:3em;
-	/*background-color: #ECF2F7;*/
-	/*display: grid;*/
-	/*grid-template-columns: 2fr 1fr;*/
 }
 
 header, footer {
@@ -57,7 +54,6 @@ header {
 
 header p {
 	font-size: 1.2rem;
-	/*background-color:#33D4D1;*/
 }
 
 img {
@@ -74,7 +70,7 @@ footer {
 	justify-content: flex-end;
 }
 
-section, form {
+section, header, form {
 	direction: rtl;
 }
 
@@ -111,6 +107,10 @@ i ~ span {
 
 .contact {
 	flex-basis: 100%;
+}
+
+.social i:not(.contact i) {
+	font-size: 2em;
 }
 
 a {
@@ -172,16 +172,11 @@ li {
 }
 
 li:first-child {
-	/*padding-right:0;*/
 }
 
 li {
 	padding:0;
 }
-
-/*.social {
-	color: #fff;
-}*/
 
 form {
 	margin-bottom: 1rem;
@@ -213,16 +208,18 @@ textarea {
 }
 
 
-@media all and (max-height: 550px) {
+/*@media all and (max-height: 550px) {*/
+@media all and (max-width: 1024px) {
 	header, footer {
 		position:static;
 		right:auto;
 		width: 100%;
-		margin-right:100px;
+		margin:0;
 		background-color: #1778B5;
 		display:flex;
-		flex-direction: row-reverse;
-		padding:.5rem;}
+		padding:.5rem;
+		height:90px;
+		}
 	main {
 		position:static;
 		width: 100%;
@@ -230,11 +227,38 @@ textarea {
 		display:grid;
 		gap:3em;
 		}
-	img {
+	header {
+		flex-direction: column;
+	    flex-wrap: wrap;
+	    justify-content: center;
+	    gap:.5rem;
+	}
+	header > div {
+		display:flex;
+		flex-direction: row;
+		align-items: baseline;
+		gap: 1rem;
+	}
+	h1 {
+	    line-height: 1;
+	}
+	.img {
+		flex-basis: 100%;
 		margin:0;
 		order:5;
 	}
-	.contact {flex-basis: auto;}
+	.contact {
+		flex-basis: auto;
+	}
+	.social i:not(.contact i) {
+	font-size: inherit;
+	}
+	.wrapper {
+		width:calc(100% - 2rem);
+		gap:1rem;
+	}
+
+
 }
 
 
