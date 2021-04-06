@@ -1,0 +1,29 @@
+main {
+	display:flex;
+	gap: 10px;
+	border: 1px gray solid;
+	padding: 4px;
+}
+
+main > div {
+	display:flex;
+	flex-direction: column;
+	gap:10px;
+}
+
+main > div:nth-child(2) {
+	flex-grow: 1;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap:40px;
+}
+
+
+div div {
+	height:50px;
+	width:50px;
+	background-color: yellow;
+	border: 1px black solid;
+}
+
