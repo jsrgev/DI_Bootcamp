@@ -5,6 +5,7 @@ html {
 body, textarea {
 	background-color: #fff;
 	font-family: 'Rubik', sans-serif;
+	position:relative;
 }
 
 body {
@@ -18,11 +19,6 @@ h1 {
 	font-size:2.5rem;
 }
 
-.wrapper {
-	display:grid;
-	gap:4em;
-}
-
 main {
 	position: relative;
 	width: calc(100% - 550px);
@@ -31,25 +27,24 @@ main {
 	gap:3em;
 }
 
-header, footer {
+header {
 	position:fixed;
+	top:0;
 	right:0;
+	height:100%;
 	width: calc(300px - 2.4rem);
 	margin-right:100px;
+	padding: 1.2rem;
 	background-color: #1778B5;
 	display:flex;
 	flex-direction: column;
-	align-items: center;
+    align-items: center;
 	color:#fff;
+	text-align: center;
 }
 
-header {
-	top:0;
-	height:60vh;
-	padding: 1.2rem 1.2rem 0;
-	text-align: center;
-	z-index: 999;
-	justify-content: space-around;
+header > * {
+	margin-bottom:3em;
 }
 
 header p {
@@ -59,16 +54,17 @@ header p {
 img {
 	width:40%;
 	border:3px solid white;
-	margin:2rem;
+	/*margin:2rem;*/
 }
 
-footer {
-	bottom:0;
+/*footer {
+	top:60vh;
 	height:40vh;
 	padding: 0 1.2rem 1.2rem;
 	text-align: center;
 	justify-content: flex-end;
-}
+	overflow:hidden;
+}*/
 
 section, header, form {
 	direction: rtl;
@@ -106,7 +102,7 @@ i ~ span {
 }
 
 .contact {
-	flex-basis: 100%;
+	/*flex-basis: 100%;*/
 }
 
 .social i:not(.contact i) {
@@ -153,8 +149,17 @@ h2 {
 	grid-column: span 2;
 	color:#33D4D1;
 	margin:0;
-}
+	text-indent: 1em;
+	width: 100%; 
+	border-bottom: 2px solid #1778B5; 
+	line-height: 0.1em;
+	margin: 10px 0 20px; 
+} 
 
+h2 span { 
+    background:#fff; 
+    padding:0 .5em; 
+}
 h3 {
 	margin-top: 0;
 	font-size: 1em;
@@ -208,8 +213,10 @@ textarea {
 }
 
 
-/*@media all and (max-height: 550px) {*/
-@media all and (max-width: 1024px) {
+/*@media all and (max-width: 1024px) {
+	body {
+		margin:0 50px;
+	}
 	header, footer {
 		position:static;
 		right:auto;
@@ -218,7 +225,6 @@ textarea {
 		background-color: #1778B5;
 		display:flex;
 		padding:.5rem;
-		height:90px;
 		}
 	main {
 		position:static;
@@ -232,6 +238,10 @@ textarea {
 	    flex-wrap: wrap;
 	    justify-content: center;
 	    gap:.5rem;
+		height:90px;
+	}
+	footer {
+		height: auto;
 	}
 	header > div {
 		display:flex;
@@ -240,6 +250,7 @@ textarea {
 		gap: 1rem;
 	}
 	h1 {
+		font-size: 2rem;
 	    line-height: 1;
 	}
 	.img {
@@ -257,30 +268,43 @@ textarea {
 		width:calc(100% - 2rem);
 		gap:1rem;
 	}
-
-
-}
+}*/
 
 
 @media all and (min-width: 1024px) and (max-width: 1280px) {
 	img {
-		height:100px;
-		width:100px;
+		/*height:100px;*/
+		/*width:100px;*/
 	}
 	}
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
+	header {
+		position:absolute;
+	}
+	.grid {
+		grid-template-columns: auto;
+	}
+
+	h2 {
+		grid-column: span 1;
+	}
+
+	.grid div:nth-child(even) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
 	img {
-		height:75px;
-		width:75px;
+		/*height:75px;*/
+		/*width:75px;*/
 	}
 	}
 
 @media all and (min-width: 480px) and (max-width: 768px) {
-	img {
-		height:50px;
-		width:50px;
+	.grid {
+		grid-template-columns: auto;
 	}
+
 	}
 
 @media all and (max-width: 480px) {
