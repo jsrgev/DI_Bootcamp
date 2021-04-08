@@ -1,0 +1,267 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+/* Reset */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, /*p,*/ blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+/* End Reset */
+
+html,h1,h2,h3,h4,h5,h6,a,textarea{
+    font-family: "Rubik", sans-serif;
+}
+
+body {
+	font-weight:400;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+nav, section, footer {
+	padding:1rem;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	background-color: #1778B5;
+	color:#fff;
+	font-weight: 500;
+}
+
+li {
+	display: inline-block;
+	padding-left:1rem;
+}
+
+li:hover {
+	/*transform: scale(1.2);*/
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+	transition: .3s;
+}
+
+a:hover {
+	color:#ECF65C;
+}
+
+header {
+	display: flex;
+	/*flex-direction: column;*/
+	background-image:url('images/headerback.jpg');
+	/*background-size: cover;*/
+	justify-content: center;
+	align-items: center;
+	height:200px;
+}
+
+header div {
+	width:40%;
+	height:50%;
+}
+
+h1 {
+	font-weight: 500;
+	color:#1778B5;
+	font-size: 1.5rem;
+	margin: 0 0 1rem;	
+}
+
+h1:not(.about h1) {
+	text-align: center;
+}
+
+button {
+	border-radius: 8px;
+	border: 2px solid #1778B5;
+	transition: .3s;
+}
+
+button:hover, button:active, button:focus {
+	border-radius: 8px;
+	border: 2px solid #ECF65C;
+	outline:none;
+}
+
+
+section {
+	width:50%;
+	display:grid;
+	padding-top:2rem;
+	margin:auto;
+}
+
+.about, .contact>div {
+	display:grid;
+	grid-template-columns: auto 1fr;
+	gap:2rem;
+	align-items: center;
+}
+
+.about div {
+	padding: 0 1rem;
+}
+
+.about img {
+	width:9rem;
+	border-radius: 50%;
+}
+
+.about div:last-child {
+	border-left:2px solid #1778B5;
+}
+
+.about p {
+	margin-bottom: 0;
+}
+
+.image-grid {
+	display: grid;
+	grid-template-columns: repeat(3, min-content);
+	gap:20px;
+	margin:1rem auto 0;
+}
+
+.image-grid img {	
+	width:170px;
+	height: 150px;
+	box-shadow: 0 0 5px 1px #888888;
+}
+
+.contact {
+	background-color: #1778B5;
+	color:#fff;
+	width:100%;
+	padding-left: 25%;
+	padding-right: 25%;
+}
+
+.contact h1 {
+	color:#fff;
+}
+
+.contact>div {width:50%;}
+
+.contact>div>div {
+	height:100%;
+	display:flex;
+	flex-direction: column;
+}
+
+.contact>div>div>div:last-child {
+	flex-grow:1;
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
+	align-items: end;
+}
+
+form {
+	display:grid;
+	grid-template-columns: 1fr;
+	gap:1rem;
+}
+
+
+
+
