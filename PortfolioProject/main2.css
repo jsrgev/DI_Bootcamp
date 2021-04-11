@@ -161,12 +161,7 @@ a:hover {
 header {
 	display: flex;
 	grid-area: header;
-	/*flex-direction: column;*/
-	/*background-image:url('images/headerback.jpg');*/
-	/*background-size: cover;*/
 	justify-content: center;
-	/*align-items: center;*/
-	/*height:200px;*/
 	position: relative;
 }
 
@@ -203,27 +198,6 @@ h1:not(.about h1) {
 	text-align: center;
 }
 
-button, input, textarea {
-	border-radius: 6px;
-	border: 2px solid #1778B5;
-	transition: .3s;
-}
-
-button:hover, button:active, button:focus,
-input:hover, input:active, input:focus,
-textarea:hover, textarea:active, textarea:focus
- {
-	border-radius: 6px;
-	border: 2px solid #ECF65C;
-	outline:none;
-}
-
-button {
-	background: #F1F1F1;
-background: -moz-linear-gradient(top, #F1F1F1 0%, #E4E4E4 50%, #DADADA 100%);
-background: -webkit-linear-gradient(top, #F1F1F1 0%, #E4E4E4 50%, #DADADA 100%);
-background: linear-gradient(to bottom, #F1F1F1 0%, #E4E4E4 50%, #DADADA 100%);
-}
 
 section {
 	display:grid;
@@ -275,11 +249,6 @@ aside {
 	background-color: #1778B5;
 	color:#fff;
 	width:calc(100% - 4rem);
-	/*display: grid;*/
-	/*grid-template-columns: 1fr;*/
-	/*grid-template-rows: repeat(2,min-content);*/
-	/*gap:4rem;*/
-	/*justify-content: start;*/
 	padding:1rem 2rem;
 	display: flex;
 	flex-direction: column;
@@ -291,31 +260,13 @@ aside h1 {
 	margin-bottom: 2rem;
 }
 
-/*.contact>div {width:50%;}*/
 
 .icons {
-	/*height:100%;*/
 	display:grid;
 	grid-template-columns: 1fr 1fr;
 	justify-items: center;
 	gap: 2rem;
 	margin: 1rem 0 3rem;
-	/*width: max-content;*/
-	/*margin: auto;*/
-}
-
-/*.contact>div>div>div:last-child {
-	flex-grow:1;
-	display:grid;
-	grid-template-columns: 1fr 1fr;
-	justify-items: center;
-	align-items: end;
-}*/
-
-form {
-	display:grid;
-	grid-template-columns: 1fr;
-	gap:1rem;
 }
 
 .portfolio {
@@ -326,4 +277,31 @@ form {
 	grid-area: blog;
 }
 
+form {
+	display:grid;
+	grid-template-columns: 1fr;
+	gap:1rem;
+}
+
+button, input, textarea {
+	border-radius: 6px;
+	border: 2px solid #1778B5;
+	transition: .3s;
+}
+
+button:hover, button:active, button:focus,
+input:hover, input:active, input:focus,
+textarea:hover, textarea:active, textarea:focus
+ {
+	border-radius: 6px;
+	border: 2px solid #ECF65C;
+	outline:none;
+}
+
+button {
+	background: #F1F1F1;
+	background: -moz-linear-gradient(top, #F1F1F1 0%, #E4E4E4 50%, #DADADA 100%);
+	background: -webkit-linear-gradient(top, #F1F1F1 0%, #E4E4E4 50%, #DADADA 100%);
+	background: linear-gradient(to bottom, #F1F1F1 0%, #E4E4E4 50%, #DADADA 100%);
+}
 
