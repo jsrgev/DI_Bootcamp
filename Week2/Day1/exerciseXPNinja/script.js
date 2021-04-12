@@ -40,6 +40,8 @@ for(var i in numArray) { sum += numArray[i]; }
 let num = prompt("Please type a number.");
 let oSequence = "o".repeat(num);
 let div2 = num % 2 == 0;
+let div5 = num % 5 == 0;
+
 let punct;
 
 if (div2) {
@@ -47,8 +49,6 @@ if (div2) {
 } else {
 	punct = ""
 }
-
-let div5 = num % 5 == 0;
 
 let sentence = `b${oSequence}m${punct}`
 
