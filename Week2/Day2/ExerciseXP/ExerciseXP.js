@@ -59,45 +59,49 @@ if (number % 2 == 0) {
 
 
 
+
+
 // Exercise 4 : Switch Case
 // Instructions
 
-// Using this function, answer the questions below:
+// Using this code, answer the questions below:
 
-// function moveCommand(direction) {
-//     var whatHappens;
-//     switch (direction) {
-//         case "forward":
-//             break;
-//             whatHappens = "you encounter a monster";
-//         case "back":
-//             whatHappens = "you arrived home";
-//             break;
-//             break;
-//         case "right":
-//             return whatHappens = "you found a river";
-//             break;
-//         case "left":
-//             break;
-//             whatHappens = "you run into a troll";
-//             break;
-//         default:
-//             whatHappens = "please enter a valid direction";
-//     }
-//     return whatHappens;
+
+// let whatHappens;
+// let direction;
+
+// switch (direction) {
+//     case "forward":
+//         break;
+//         whatHappens = "you encounter a monster";
+//     case "back":
+//         whatHappens = "you arrived home";
+//         break;
+//         break;
+//     case "right":
+//         return whatHappens = "you found a river";
+//         break;
+//     case "left":
+//         break;
+//         whatHappens = "you run into a troll";
+//         break;
+//     default:
+//         whatHappens = "please enter a valid direction";
 // }
 
-// 1.   What is the returned value when moveCommand("forward")
+//     What is the returned value when the value of the direction variable is “forward”
 //	null
 
-// 2.    What is the returned value when moveCommand("back")
+//     What is the returned value when the value of the direction variable is “back”
 //	"you arrived home"
 
-// 3.    What is the returned value when moveCommand("right")
+//     What is the returned value when the value of the direction variable is “right”
 //	error
 
-// 4.    What is the returned value when moveCommand("left")
+//     What is the returned value when the value of the direction variable is “left”
 //	null
+
+
 
 
 
