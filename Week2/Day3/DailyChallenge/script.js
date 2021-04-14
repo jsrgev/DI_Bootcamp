@@ -17,12 +17,12 @@
 
 // One way:
 
+
 let stars = [];
 for (let i = 1; i < 7; i++) {
 	stars.push("* ".repeat(i));
 }
 console.log(stars.join("\n"));
-
 
 
 // Another way:
@@ -37,6 +37,10 @@ for (let i = 1; i < 7; i++) {
 	stars.push(line);
 }
 console.log(stars.join("\n"));
+
+
+
+
 
 
 
