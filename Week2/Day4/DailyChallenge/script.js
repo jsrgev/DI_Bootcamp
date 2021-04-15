@@ -6,8 +6,6 @@ let longest = array[0];
 for (i = 1; i<array.length; i++) {
 	if (array[i].length > longest.length) {
 		longest = array[i];
-	} else {
-		continue;
 	}
 }
 
