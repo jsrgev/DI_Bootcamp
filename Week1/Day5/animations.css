@@ -12,6 +12,7 @@ div {
 	transition: all 0.5s ease;
 	margin: 30px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -25,9 +26,11 @@ p {
 	font-weight: 600;
 	font-size: 22px;
 	transition: all 0.5s ease;
+	text-align: center;
+	margin:0;
 }
 .fade {
-	opacity: 0.1;
+	opacity: 0;
 }
 
 .fade:hover {
@@ -39,18 +42,41 @@ p {
 .color:hover p {
 	color: #38D7BF;
 }
+
+.shrink p:nth-child(2) {
+	-webkit-transform: scale(.4);
+	-ms-transform: scale(.4);
+	transform: scale(.4);
+}
+
 .shrink:hover {
 	-webkit-transform: scale(.8);
 	-ms-transform: scale(.8);
 	transform: scale(.8);
 }
-.shrink:hover p {
-	-webkit-transform: scale(1.8);
-	-ms-transform: scale(1.8);
-	transform: scale(1.8);
+
+.shrink:hover p:first-child {
+	-webkit-transform: scale(.4);
+	-ms-transform: scale(.4);
+	transform: scale(.4);
 }
 
-.shrink:hover span {
+.shrink:hover p:nth-child(2) {
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
+	-webkit-transform: rotateZ(360deg);
+	-ms-transform: rotateZ(360deg);
+	transform: rotateZ(360deg);
+}
+
+.shrink:hover p:last-child {
+	-webkit-transform: scale(4);
+	-ms-transform: scale(4);
+	transform: scale(4);
+}
+
+.shrink:hover p:first-child, .shrink:hover p:last-child {
 	color:#38D7BF;
 }
 
@@ -75,10 +101,17 @@ p {
 	transform: rotateZ(360deg);
 }
 .shadow:hover {
-	box-shadow: 2px 2px #3cceb8, 4px 4px #3fbeaa, 6px 6px #42ab9b;
+	box-shadow: 1px 1px 3px #3cceb8, 2px 3px 3px #3fbeaa, 4px 4px 3px #42ab9b;
 	-webkit-transform: translateX(-3px);
 	transform: translateX(-3px);
 }
+
+.shadow:hover p {
+	text-shadow: 1px 1px 3px #3cceb8, 2px 3px 3px #3fbeaa, 4px 4px 3px #42ab9b;
+	-webkit-transform: translateX(-3px);
+	transform: translateX(-3px);
+}
+
 @-webkit-keyframes swing {
 	15% {
 		-webkit-transform: translateX(15px);
@@ -139,4 +172,22 @@ p {
 }
 .inset-border:hover {
 	box-shadow: inset 0 0 50px 10px rgba(254,255,246,.6);
+}
+
+.background {
+	background-image:
+    repeating-linear-gradient(
+      45deg,
+      #A399EB,
+      #A399EB 10px,
+      #38D7BF 10px,
+      #38D7BF 20px
+    );
+    background-attachment:fixed;
+    transition: all 3s ease;
+;
+}
+
+.background:hover {
+	background-position:360px;
 }

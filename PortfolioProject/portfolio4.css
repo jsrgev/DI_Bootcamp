@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+
+/* Fonts */
+
+aside, h1 {
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+aside p, h1 {
+	margin-top: 0;
+}
+
+
+body {
+	margin:2rem 3rem;
+	padding:0;
+	font-family: Rubik, sans-serif;
+	background-color: #fefefe;
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr;
+	margin-left: 300px;
+}
+
+aside {
+	position: fixed;
+}
+
+
+aside p span {
+	color: #33D4D1;
+}
+
+aside ul {
+	list-style-type: none;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap:1rem;
+}
+aside a {
+	text-decoration: none;
+}
+
+aside a  {
+	color: #FF9036;
+	/*color:#0D6DDB;*/
+	transition: all .3s;
+	/*color: #fff;*/
+	/*-webkit-text-stroke: 1px #0D6DDB;*/
+}
+
+.icons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap:1rem;
+	color: #fff;
+	/*-webkit-text-stroke: 1px #0D6DDB;*/
+}
+
+
+a:hover, a:active {
+	/*-webkit-text-stroke: 1px #0D6DDB;*/
+	color:#ECF65C;
+	/*background-color: #0D6DDB;*/
+}
+
+
+
+
+form {
+	width: 400px;
+	background-color: #33D4D1;
+	padding:1rem;
+	border-radius: 10px;
+    /*box-shadow: 4px 4px 0px #D1D1D1;*/
+}
+
+input, textarea, button {
+	padding: .3rem;
+	box-sizing: border-box;
+	margin-bottom:1rem;
+	outline:0;
+}
+
+input, textarea, label {
+	font-family: "courier";
+}
+
+input, textarea {
+	width:100%;
+	background-color: #fefefe;
+	border: none;
+	border-bottom:2px solid #8F8F8F;
+}
+
+input:hover, textarea:hover, input:focus, textarea:focus {
+	border-bottom:2px solid #ECF65C;
+}
+
+form div {
+	position:relative;
+}
+
+label {
+	position: absolute;
+	top:.3rem;
+	left:.3rem;
+	color: #8F8F8F;
+}
+
+input {
+	padding-left:5rem;
+}
+
+button {
+	background-color: #fefefe;
+	border: none;
+	border-radius: 10px;
+	width:100%;
+	text-transform: uppercase;
+	color:#8F8F8F;
+	font-weight: 600;
+}
+
+button:hover {
+	background-color:#ECF65C;
+}
+
+button:active {
+    box-shadow: inset 2px 2px 1px #D1D1D1, inset -2px -2px 1px #fff;
+}
+
+textarea {
+	resize: vertical;
+}
