@@ -10,7 +10,6 @@ function number(num) {
 			num1 = result;
 			num2 = num;
 			document.getElementById("display").innerHTML = num2;
-			console.log(`${num1} and ${oper} and ${num2}`);
 		} else {
 			num1 = num;
 			document.getElementById("display").innerHTML = num1;
@@ -29,23 +28,20 @@ function number(num) {
 			document.getElementById("display").innerHTML = num2;
 		}
 	}
-	console.log(`${num1} and ${oper} and ${num2}`);
 }
 
 function operator(operator) {
 	if (num1 != undefined || (num1 == undefined && result != undefined)) {
 		oper = operator;
-		document.getElementById("display").innerHTML = oper;
-		console.log(oper);
 	}
 }
 
 function equal() {
 	preResult = eval(num1 + oper + num2);
-	console.log(preResult);
-	if (/e/.test(preResult) || preResult.toString().length > 14 && (preResult.toString().indexOf(".") < 1 || preResult.toString().indexOf(".") > 14)) {
-		result = undefined;
-		console.log("too large");
+	if (isNaN(preResult) == true) {
+		return;
+	}
+	if (preResult == Infinity || /e/.test(preResult) || preResult.toString().length > 14 && (preResult.toString().indexOf(".") < 1 || preResult.toString().indexOf(".") > 14)) {
 		document.getElementById("display").innerHTML = "ERROR";
 		//if it's longer than 14, and either there's no decimal or the decimal is past 14
 	} else {
@@ -61,13 +57,11 @@ function equal() {
 			result = preResult;
 		}
 		document.getElementById("display").innerHTML = result;
-		console.log(result);
 	}
 
 	num1 = undefined;
 	num2 = undefined;
 	oper = undefined;
-	console.log(result);
 }
 
 function sign() {
@@ -104,6 +98,5 @@ function clearAll() {
 	num2 = undefined;
 	oper = undefined;
 	result = undefined;
-	console.log(`${num1} and ${oper} and ${num2}`);
 	document.getElementById("display").innerHTML = 0;
 }
