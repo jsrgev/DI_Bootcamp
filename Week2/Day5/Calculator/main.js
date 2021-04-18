@@ -6,7 +6,7 @@ let result;
 
 function number(num) {
 	if (num1 == undefined) {
-		if (oper != undefined) {
+		if (oper != undefined) { //if user is starting with result after equals
 			num1 = result;
 			num2 = num;
 			document.getElementById("display").innerHTML = num2;
@@ -16,13 +16,15 @@ function number(num) {
 			document.getElementById("display").innerHTML = num1;
 		}
 	} else if (oper == undefined) {
-		num1 = num1.toString().concat(num.toString());
-		document.getElementById("display").innerHTML = num1;
+		if (num1.toString().length < 14) {
+			num1 = num1.toString().concat(num.toString());
+			document.getElementById("display").innerHTML = num1;
+		}
 	} else {
 		if (num2 == undefined) {
 			num2 = num;
 			document.getElementById("display").innerHTML = num2;
-		} else {
+		} else if (num2.toString().length < 14) {
 			num2 = num2.toString().concat(num.toString());
 			document.getElementById("display").innerHTML = num2;
 		}
@@ -39,20 +41,49 @@ function operator(operator) {
 }
 
 function equal() {
-	result = eval(num1 + oper + num2);
+	preResult = eval(num1 + oper + num2);
+	console.log(preResult);
+	if (/e/.test(preResult) || preResult.toString().length > 14 && (preResult.toString().indexOf(".") < 1 || preResult.toString().indexOf(".") > 14)) {
+		result = undefined;
+		console.log("too large");
+		document.getElementById("display").innerHTML = "ERROR";
+		//if it's longer than 14, and either there's no decimal or the decimal is past 14
+	} else {
+		if (preResult.toString().length > 14 && preResult.toString().indexOf(".") > -1) {
+			//if it's longer than 14, and there's a decimal
+			let decPlace = preResult.toString().indexOf(".");
+			let roundTo = 13-decPlace;
+			if (roundTo < 0) {
+				roundTo = 0;
+			}
+			result = preResult.toFixed(roundTo);
+		} else {
+			result = preResult;
+		}
+		document.getElementById("display").innerHTML = result;
+		console.log(result);
+	}
+
 	num1 = undefined;
 	num2 = undefined;
 	oper = undefined;
-	document.getElementById("display").innerHTML = result;
 	console.log(result);
 }
 
 function sign() {
 	if (num1 != undefined && num2 == undefined) {
-		num1 = "-" + num1;
+		if (num1 > 0) {
+			num1 = "-" + num1;
+		} else if (num1 < 0) {
+			num1 = num1.substr(1);
+		}
 		document.getElementById("display").innerHTML = num1;
 	} else if (num1 != undefined && num2 != undefined) {
-		num2 = "-" + num2;
+		if (num2 > 0) {
+			num2 = "-" + num2;
+		} else if (num2 < 0) {
+			num2 = num2.splice(0,1);
+		}
 		document.getElementById("display").innerHTML = num2;
 	}
 }
@@ -73,6 +104,6 @@ function clearAll() {
 	num2 = undefined;
 	oper = undefined;
 	result = undefined;
-	console.log(`${num1} and ${oper} and  ${num2}`);
+	console.log(`${num1} and ${oper} and ${num2}`);
 	document.getElementById("display").innerHTML = 0;
 }
