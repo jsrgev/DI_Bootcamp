@@ -1,7 +1,7 @@
 function ninetyNineLyrics() {
 	let number = prompt("Please enter a number from 1 - 99 to start with:")
 	while (number > 99 || number < 1) {
-		 max = prompt("Please try again. Enter a number from 1 - 99 to start with:")
+		 number = prompt("Please try again. Enter a number from 1 - 99 to start with:")
 	}
 	let lyrics = []
 	let takeDown = 1;

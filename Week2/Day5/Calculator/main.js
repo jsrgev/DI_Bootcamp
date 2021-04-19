@@ -2,7 +2,8 @@ let num1;
 let num2;
 let oper;
 let result;
-
+let prevOper;
+let prevResult
 
 function number(num) {
 	if (num1 == undefined) {
