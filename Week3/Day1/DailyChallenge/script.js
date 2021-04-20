@@ -27,13 +27,9 @@ for (planet in planets) {
 		divMoon.classList.add("moon");
 		let distance = i*10 + "px";
 		divMoon.style.left=distance;
-		// divMoon.style.top=distance;
 		div.appendChild(divMoon);
 	}
 	let section = document.getElementsByTagName("section")[0];
 	section.appendChild(div);
 }
-
-
-
 
