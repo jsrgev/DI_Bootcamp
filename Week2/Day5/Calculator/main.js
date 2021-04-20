@@ -49,6 +49,7 @@ function number(num) {
 			num1 = result;
 			num2 = num; //new input
 			display(num2);
+			result = undefined;
 		} else { //if all vars empty, or new num input after equal
 			num1 = num;
 			num2 = undefined;
@@ -86,13 +87,15 @@ function operator(operator) {
 }
 
 function equal() {
-	preResult = eval(num1 + oper + num2);
 	if (num1 == undefined && oper == undefined && result != undefined) {
+		//no num1, no oper, yes result. if repeatedly hitting =
 		num1 = result;
 		oper = prevOper;
-		equal();
+		// equal();
 	}
+	preResult = eval(num1 + oper + num2);
 	if (isNaN(preResult) == true) {
+		oper = undefined; // if input 1 + 2 + =, get rid of oper. otherwise new input will not go to num1
 		return; // if equal before num2 input, ignore
 	}
 	if (preResult == Infinity) {
@@ -107,27 +110,8 @@ function equal() {
 	num1 = undefined;
 	// preResult = tidy(preResult)
 	display(tidy(preResult));
+	return;
 }
-	// || /e/.test(preResult) || preResult.toString().length > 14 && (preResult.toString().indexOf(".") < 1 || preResult.toString().indexOf(".") > 14)) {
-	// 	display("ERROR");
-	// 	//if longer than 14, and either there's no decimal or decimal is past 14
-	// } else {
-	// 	if (preResult.toString().length > 14 && preResult.toString().indexOf(".") > -1) {
-	// 		//if it's longer than 14, and there's a decimal
-	// 		let decPlace = preResult.toString().indexOf(".");
-	// 		let roundTo = 13-decPlace;
-	// 		if (roundTo < 0) {
-	// 			roundTo = 0;
-	// 		}
-	// 		result = preResult.toFixed(roundTo);
-	// 	} else {
-	// 		result = preResult;
-	// 	}
-	// 	display(result);
-	// }
-
-
-
 
 
 function sign() {
