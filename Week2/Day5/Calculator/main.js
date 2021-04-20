@@ -9,24 +9,36 @@ function display(string) {
 }
 
 function tidy(string) {
-		if (/e/.test(string) ||
-		(string.toString().length > 14 &&
-		(string.toString().indexOf(".") < 1 || string.toString().indexOf(".") > 14)) {
-		display("TOO LARGE");
+	let length = string.toString().length;
+	if (string.toString()[0] == "-") {
+		length -= 1; // to ignore neg sign when counting 14 char
+	}
+
+	let decPlace = string.toString().indexOf(".");
+
+	if (/e/.test(string) ||     //exponential
+		(length > 14 && (decPlace < 1 || decPlace > 14))) {
 		//if longer than 14, and either there's no decimal or decimal is past 14
+		return "TOO LARGE";
 	} else {
-		if (string.toString().length > 14 && string.toString().indexOf(".") > -1) {
+		if (length > 14 && decPlace > -1) {
 			//if it's longer than 14, and there's a decimal
-			let decPlace = string.toString().indexOf(".");
 			let roundTo = 13-decPlace;
 			if (roundTo < 0) {
 				roundTo = 0;
 			}
-			result = string.toFixed(roundTo);
+			string = string.toFixed(roundTo); //round so only 14 chars total
+			length = string.toString().length;
+			while (string.toString()[length-1] == 0 || string.toString()[length-1] == ".") {
+				string = string.substr(0,length);
+				//get rid of trailing 0s after ".", or final ".""
+			}
+			return string;
 		} else {
-			result = preResult;
+			return string;
 		}
 	}
+	console.log(string);
 }
 
 function number(num) {
@@ -83,29 +95,38 @@ function equal() {
 	if (isNaN(preResult) == true) {
 		return; // if equal before num2 input, ignore
 	}
-	if (preResult == Infinity || /e/.test(preResult) || preResult.toString().length > 14 && (preResult.toString().indexOf(".") < 1 || preResult.toString().indexOf(".") > 14)) {
-		display("ERROR");
-		//if longer than 14, and either there's no decimal or decimal is past 14
-	} else {
-		if (preResult.toString().length > 14 && preResult.toString().indexOf(".") > -1) {
-			//if it's longer than 14, and there's a decimal
-			let decPlace = preResult.toString().indexOf(".");
-			let roundTo = 13-decPlace;
-			if (roundTo < 0) {
-				roundTo = 0;
-			}
-			result = preResult.toFixed(roundTo);
-		} else {
-			result = preResult;
-		}
-		display(result);
+	if (preResult == Infinity) {
+		display("ERROR"); //if divided by 0
+		undefine();
+		return;
 	}
 
-	num1 = undefined;
+	result = preResult;
 	prevOper = oper;
 	oper = undefined;
-
+	num1 = undefined;
+	// preResult = tidy(preResult)
+	display(tidy(preResult));
 }
+	// || /e/.test(preResult) || preResult.toString().length > 14 && (preResult.toString().indexOf(".") < 1 || preResult.toString().indexOf(".") > 14)) {
+	// 	display("ERROR");
+	// 	//if longer than 14, and either there's no decimal or decimal is past 14
+	// } else {
+	// 	if (preResult.toString().length > 14 && preResult.toString().indexOf(".") > -1) {
+	// 		//if it's longer than 14, and there's a decimal
+	// 		let decPlace = preResult.toString().indexOf(".");
+	// 		let roundTo = 13-decPlace;
+	// 		if (roundTo < 0) {
+	// 			roundTo = 0;
+	// 		}
+	// 		result = preResult.toFixed(roundTo);
+	// 	} else {
+	// 		result = preResult;
+	// 	}
+	// 	display(result);
+	// }
+
+
 
 
 

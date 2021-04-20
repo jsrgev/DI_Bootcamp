@@ -6,13 +6,34 @@ body, input, button {
 }
 
 body {
-	margin:1rem;
+	margin:1rem 2rem;
 	padding:0;
 }
 
 
 h1 {
+	font-size:4rem;
+	margin:1rem 0;
 	text-align: center;
+	color: #6242ED;
+	background-image:
+    repeating-linear-gradient(
+      45deg,
+      #6242ED,
+      #6242ED 5px,
+      #FFDA6B 5px,
+      #FFDA6B 6px,
+      #1778DE 6px,
+      #1778DE 11px,
+      #FFBACE 11px,
+      #FFBACE 12px
+    );
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+
+h1 span {
+	-webkit-text-fill-color: transparent;
 }
 
 ul {
@@ -35,7 +56,7 @@ input {
 input:hover, input:focus {
 	outline:none;
 	color: #6242ED;
-	border-color:#FF6666;
+	border-color:#FFDA6B;
 }
 
 input:focus {
