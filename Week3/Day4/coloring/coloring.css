@@ -1,0 +1,55 @@
+body {
+	font-family: calibri;
+}
+
+h1 {
+	text-align: center;
+}
+
+main {
+    margin: auto;
+	background-color: lightgray;
+	padding:10px;
+	display: grid;
+	grid-template-columns: 200px auto;
+	gap:10px;
+    width: min-content;
+}
+
+#left {
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-template-rows: repeat(10,1fr);
+	gap:5px;
+}
+
+#left div {
+	border:1px solid black;
+}
+
+#clear {
+	grid-column: span 3;
+	background-color: white;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#left .highlighted {
+	/*border:4px solid #fff;*/
+	box-shadow: inset 0 0 2px white, 0 0 2px black;
+}
+
+
+#right {
+	display: grid;
+	/*gap:1px;*/
+	grid-template-columns: repeat(200,4px);
+	grid-template-rows: repeat(120,4px);
+    width: min-content;
+}
+
+#right div {
+	background-color: #fff;
+}

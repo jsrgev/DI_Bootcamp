@@ -11,7 +11,7 @@ let input = document.querySelector("#input");
 input.addEventListener("keydown",lettersOnly);
 
 function lettersOnly(event) {
-	let key = event.keyCode;
+	let key = event.code;
 	if (key < 65 || key >90) {
 		event.preventDefault();
 	}

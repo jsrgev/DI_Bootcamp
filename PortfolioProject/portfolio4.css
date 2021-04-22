@@ -24,6 +24,7 @@ main {
 	display: grid;
 	grid-template-columns: 1fr;
 	margin-left: 300px;
+
 }
 
 aside {
@@ -46,7 +47,7 @@ aside a {
 	text-decoration: none;
 }
 
-aside a  {
+ul a  {
 	color: #FF9036;
 	/*color:#0D6DDB;*/
 	transition: all .3s;
@@ -56,16 +57,21 @@ aside a  {
 
 .icons {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap:1rem;
-	color: #fff;
+	grid-template-columns: min-content min-content;
+	gap:1rem 2rem;
 	/*-webkit-text-stroke: 1px #0D6DDB;*/
 }
 
+.icons a {
+	color: #33D4D1;
+	transition: all .3s;
+
+}
 
 a:hover, a:active {
-	/*-webkit-text-stroke: 1px #0D6DDB;*/
-	color:#ECF65C;
+	-webkit-text-stroke: 1.1px #ECF65C;
+	transform: scale(1.2);
+	/*color:#ECF65C;*/
 	/*background-color: #0D6DDB;*/
 }
 
@@ -73,11 +79,12 @@ a:hover, a:active {
 
 
 form {
-	width: 400px;
+	width: 100%;
 	background-color: #33D4D1;
 	padding:1rem;
 	border-radius: 10px;
-    /*box-shadow: 4px 4px 0px #D1D1D1;*/
+	box-sizing: border-box;
+    box-shadow: 4px 4px 0px #D1D1D1;
 }
 
 input, textarea, button {
