@@ -160,9 +160,24 @@ In this exercise, you have to decide which type of variables you have to use:
     Display your current bankAccount standing at the end of the month.
 
 
+let bankAmount = 100;
+const vat = .17;
+let transactions = [400, -300, 200, 143, -90]
 
+function taxedExpenses() {
+    let array = transactions
+    transactions.forEach((item,i) => {
+        if (item<0) {
+        array[i]= item+(item*vat);
+        } 
+    })
 
-
+    let sum = 0;
+    array.forEach(item => {
+        sum += item;
+    })
+    console.log(sum);
+}
 
 
 
