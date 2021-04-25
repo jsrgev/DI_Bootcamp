@@ -43,15 +43,13 @@ for (i = 0; i<27; i++) {
 	let div = document.createElement("div");
 	div.classList.add("palette");
 	div.style.backgroundColor = colorRange[i];
+	div.addEventListener("click",getColor);
 	left.appendChild(div);
 }
 
 let palette = document.querySelectorAll(".palette");
 
 
-for (i=0;i<palette.length; i++) {
-	palette[i].addEventListener("click",getColor);
-}
 
 let currentColor;
 
