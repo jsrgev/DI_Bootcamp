@@ -49,8 +49,6 @@ for (i = 0; i<27; i++) {
 
 let palette = document.querySelectorAll(".palette");
 
-
-
 let currentColor;
 
 function getColor(event) {
@@ -84,24 +82,9 @@ function mouseIsUp() {
 	console.log(mouseDown);
 }
 
-
 function applyColor(event) {
 	if (mouseDown==true) {
 		event.target.style.backgroundColor = currentColor;
 	}
 }
 
-
-
-
-// create eventlistener for click on color
-// 	save bgcolor to variable
-
-// create eventlistener for click on right div
-// 	apply bgcolor to bgcolor of box clicked on
-// also
-// mousedown,
-// 	apply bgcolor
-	
-
-// clear eventlistener, click, set all right bgcolr to #fff

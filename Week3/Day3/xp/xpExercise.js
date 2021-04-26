@@ -11,8 +11,8 @@ let unit = 1;
 
 function myMove() {setInterval(function() {
 	if (unit <= 350) {
-	box.style.left = unit + "px";
-	unit++;
+		box.style.left = unit + "px";
+		unit++;
 	} else {
 		clearInterval(myMove);
 	}
