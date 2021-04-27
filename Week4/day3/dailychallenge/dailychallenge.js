@@ -24,3 +24,19 @@ let getCarHonda = (carInventory) => {
 getCarHonda(inventory);
 
 
+Part II
+
+    Create a function sortCarInventoryByYear(carInventory) that takes a single parameter. carInventory‘s value is an array which is an inventory of cars (see the array of objects below)
+    the function should return an inventory that is sorted by car_year, ascending.
+    Hint : Check out this tutorial on the sort method
+
+    Use the cars inventory below:
+
+
+let sortCarInventoryByYear = (carInventory) => {
+  let sorted = carInventory.sort((a,b) => a["car_year"]-b["car_year"]);
+  return sorted;
+}
+
+sortCarInventoryByYear(inventory);
+
