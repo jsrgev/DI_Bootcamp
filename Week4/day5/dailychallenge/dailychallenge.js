@@ -21,15 +21,10 @@ const anagramCheck = (string1,string2) => {
 	let string2Tidy = string2.replaceAll(" ","").toLowerCase();
 	let array1 = string1Tidy.split("").sort();
 	let array2 = string2Tidy.split("").sort();
-	if (array1.length !== array2.length) {
-		return false;
+	if (array1.join() == array2.join()) {
+		return true;
 	}
-	for (i = 0; i<array1.length; i++) {
-		if (array1[i] !== array2[i]) {
-			return false;
-		}
-	};
-	return true;
+	return false;
 }
 
 console.log(anagramCheck("The Morse Code","He re  come dots"));
