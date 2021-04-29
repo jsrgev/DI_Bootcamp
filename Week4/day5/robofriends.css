@@ -21,6 +21,9 @@ header {
 	grid-template-columns: max-content 1fr;
 	gap:1rem;
 	align-items: center;
+	position: sticky;
+	top: 0;
+	z-index: 10;
 }
 
 h1 {
@@ -48,7 +51,7 @@ div {
 	backdrop-filter:blur(2.5px);	
 	padding:1rem;
 	border-radius: 10px;
-	box-shadow: 2px 2px 3px gray, -2px -2px 3px #ffffffaa;
+	box-shadow: 5px 5px 4px #808080cc, -5px -5px 4px #ffffffcc;
 }
 
 h2 {

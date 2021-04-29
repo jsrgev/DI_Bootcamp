@@ -73,7 +73,7 @@ const robots = [
 
 const main = document.querySelector("main");
 
-function createDiv(robot) {
+const createDiv = (robot) => {
   let div = document.createElement("div");
   div.setAttribute("id",robot.id);
 
@@ -92,18 +92,14 @@ function createDiv(robot) {
   main.appendChild(div);
 }
 
-
 for (robot of robots) {
  createDiv(robot);
 }
 
-let allDivs = document.querySelectorAll("div");
-
 const filter = () => {
-  allDivs = document.querySelectorAll("div");
+  let allDivs = document.querySelectorAll("div");
   for (div of allDivs){
     div.remove();
-    console.log("running");
   }
   for (robot of robots) {
     let array = robot.name.split(" ");
@@ -118,10 +114,5 @@ const filter = () => {
 
 let input = document.querySelector("input");
 input.addEventListener("keyup",filter);
-
-
-
-
-
 
 
