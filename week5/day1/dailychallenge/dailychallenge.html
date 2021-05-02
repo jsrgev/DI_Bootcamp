@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>XP</title>
+	<style type="text/css">
+		form {
+			display: grid;
+			gap:1rem;
+			width: 300px;
+		}
+		#submit {
+			justify-self: start;
+		}
+	</style>
+</head>
+<body>
+	<form method="post" onsubmit="return jsonInput()">
+		<input type="text" name="firstname" placeholder="First Name">
+		<input type="text" name="lastname" placeholder="Last Name">
+		<input id="submit" type="submit">
+	</form>
+	<script src="dailychallenge.js"></script>
+</body>
+</html>
+
