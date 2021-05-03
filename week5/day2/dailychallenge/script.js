@@ -5,11 +5,11 @@ const getImages = (event) => {
 	event.preventDefault();
 	let searchTerm = searchBox.value;
 	let xhr = new XMLHttpRequest();
-	xhr.open('GET', `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&rating=g&limit=1&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`);
+	xhr.open('GET', `https://api.giphy.com/v1/gifs/random?tag=${searchTerm}&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`);
 	xhr.send();
 	xhr.onload = function() {
 		let obj = JSON.parse(xhr.response)
-		appendDiv(obj["data"][0]["images"]["original"]["url"])
+		appendDiv(obj["data"]["images"]["original"]["url"])
 	}
 	searchBox.value = "";
 }
