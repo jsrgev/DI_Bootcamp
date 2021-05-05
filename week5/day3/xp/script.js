@@ -70,7 +70,7 @@ errorPromise.then(resolve => {
 //     Use Promise.reject(error) to create a promise that will reject itself with the string “Boo!”
 
 
-let promise1 = Promise.resolve(3);
+let promise1 = Promise.resolve(3+2);
 
 let promise2 = Promise.reject("Boo");
 
