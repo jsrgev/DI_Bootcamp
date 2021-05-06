@@ -1,9 +1,9 @@
 let displayDiv = document.getElementById("displayDiv");
 
 const getCharacter = async () => {
-	try	{
 		displayDiv.innerHTML = `<i class="fas fa-spinner fa-spin fa-5x"></i>`
-		let randomNum = Math.floor(Math.random() * 84);
+		let randomNum = Math.floor(Math.random() * 184);
+	try	{
 		let response = await fetch(`https://swapi.dev/api/people/${randomNum}/`);
 		let data = await response.json();
 		data.homeworld = await getPlanet(data.homeworld);
