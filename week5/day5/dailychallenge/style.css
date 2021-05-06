@@ -1,0 +1,29 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	margin:0;
+	padding:1rem;
+	font-family: calibri;
+}
+
+#wrapper {
+	width: max-content;
+	margin: 0 auto;
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	display: grid;
+	grid-template-columns: max-content max-content;
+	gap:1rem;
+}
+
+#result {
+	color:blue;
+	font-weight: 600;
+}
