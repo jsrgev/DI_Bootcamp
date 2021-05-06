@@ -1,0 +1,101 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	margin: 0;
+	padding: 30px;
+	font-family: calibri;
+}
+
+#wrapper {
+	display: grid;
+	grid-template-columns: min-content min-content;
+	grid-template-rows: 145px 492px;
+	gap: 20px 5px;
+}
+
+ol {
+	padding:1rem;
+}
+
+main {
+	grid-row: span 2;
+	/*background-image: url("pokedex.png");*/
+	position: relative;
+}
+
+#pokedex {
+	height:500px;
+}
+
+main>div {
+	position:absolute;
+}
+
+#picture {
+	position: absolute;
+    height: 170px;
+    width: 233px;
+    top: 35px;
+    left: 231px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#picture img {
+	height:170px;
+}
+
+#picture img[src="loading.gif"] {
+	height:80px;
+}
+
+#info {
+	position: absolute;
+    height: 170px;
+    width: 233px;
+    top: 296px;
+    left: 231px;
+    padding:.5rem;
+}
+
+h2 {
+	margin-top:0;
+	font-size:1.2rem;
+}
+
+p {
+	line-height: 1;
+}
+
+#left {
+	position: absolute;
+    height: 23px;
+    width: 31px;
+    top: 364px;
+    left: 114px;
+}
+
+#right {
+	position: absolute;
+    height: 23px;
+    width: 31px;
+    top: 364px;
+    left: 167px;
+}
+
+
+#circle {
+	position: absolute;
+	height: 55px;
+    width: 55px;
+    top: 349px;
+    left: 580px;
+	border-radius: 50%;
+}
+
+
+
+
