@@ -6,17 +6,17 @@ const getCharacter = async () => {
 	let randomNum = Math.floor(Math.random() * 184);
 	// up to 184 instead of 84, to generate some errors
 	try	{
-		let response = await fetch(`ht://swapi.dev/api/people/${randomNum}/`);
+		let response = await fetch(`https://swapi.dev/api/people/${randomNum}/`);
 		let data = await response.json();
 		if(data.homeworld){
 			data.homeworld = await getPlanet(data.homeworld);
 			display(data);
 		}
 		else{
-			displayDiv.innerHTML = `2222 Sorry, someone's missing! Please try again.`;
+			displayDiv.innerHTML = `Sorry, someone's missing! Please try again.`;
 		}
 	} catch {
-		displayDiv.innerHTML = `1111  Sorry, someone's missing! Please try again.`;
+		displayDiv.innerHTML = `Sorry, someone's missing! Please try again.`;
 	}
 }
 
