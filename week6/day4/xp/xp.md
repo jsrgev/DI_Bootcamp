@@ -87,6 +87,12 @@ SELECT last_name FROM employees
 WHERE SUBSTRING(last_name,3,1) = 'e'
 
 --7
+SELECT DISTINCT job_title
+FROM jobs j
+ INNER JOIN employees e
+ON j.job_id = e.job_id
+
+--8
 SELECT * FROM employees
 WHERE last_name IN ('Jones','Blake','Scott','King','Ford')
 
