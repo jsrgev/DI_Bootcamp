@@ -138,7 +138,7 @@ const clearAll = () => {
 	display.innerHTML = "";
 }
 
-const createTable = (() => {
+const createTable = () => {
 	let display = document.getElementById("display")
 	display.innerHTML = "";
 	let table = document.createElement("TABLE");
@@ -153,8 +153,14 @@ const createTable = (() => {
 		// console.log(typeof(tasks[i].finishDate));
 		let days = calculateDays(tasks[i].finishDate);
 		days = isNaN(days) ? "" : days;
-		let startDate = convertDay(tasks[i].startDate);
+		// let startDate = convertDay(tasks[i].startDate);
+		startDate = tasks[i].startDate == "" ? "" : convertDay(tasks[i].startDate);
+
+
+
 		let finishDate = convertDay(tasks[i].finishDate);
+		// finishDate = isNaN(finishDate) ? "" : finishDate;
+		finishDate = tasks[i].finishDate == "" ? "" : convertDay(tasks[i].finishDate);
 
 		let trContent = `
 		<tr>
@@ -180,9 +186,9 @@ const createTable = (() => {
 	}
 	display.appendChild(table);
 	addListeners();
-})()
+}
 
-// createTable();
+createTable();
 
 
 
