@@ -1,0 +1,39 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	margin: 0;
+	padding: 2rem;
+	font-family: calibri;
+}
+
+.completed {
+	color:gray;
+}
+
+table {
+  counter-reset: rowNumber;
+}
+
+tr::before {
+  display: table-cell;
+  counter-increment: rowNumber;
+  content: counter(rowNumber) ".";
+  padding-right: 0.3em;
+  text-align: right;
+}
+
+td {
+	border:1px solid black;
+}
+
+
+.hidden {
+	display: none;
+}
+
+.late {
+	color: red;
+}
+
