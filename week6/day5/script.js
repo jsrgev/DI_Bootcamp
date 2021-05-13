@@ -11,18 +11,23 @@
 // document.getElementById('datePicker').value = new Date().toDateInputValue();
 
 let tasks = localStorage.getItem('storedTasks') ? JSON.parse(localStorage.getItem('storedTasks')) : [];
+// for (let task of tasks) {
+// 	// let datee e= 
+// 	task.startDate = new Date(parseInt(task.startDate));
+// 	task.finishDate = new Date(parseInt(task.finishDate));
+// }
 
 function addTask() {
 	let startDate = document.getElementById('inputStartDate').value;
-	let parsedStartDate = parseDate(startDate);
-	console.log(parsedStartDate);
+	// let parsedStartDate = parseDate(startDate);
+	// console.log(parsedStartDate);
 	let finishDate = document.getElementById('inputFinishDate').value;
-	let parsedFinishDate = parseDate(finishDate);
+	// let parsedFinishDate = parseDate(finishDate);
 	let task = {
 		name: document.getElementById('inputName').value,
-		startDate: parsedStartDate,
+		startDate: startDate,
 		startTime: document.getElementById('inputStartTime').value,
-		finishDate: parsedFinishDate,
+		finishDate: finishDate,
 		finishTime: document.getElementById('inputFinishTime').value,
 		desc: document.getElementById('inputDesc').value,
 		completed: false
@@ -42,60 +47,28 @@ function parseDate(s) {
   return new Date(b[0], --b[1], b[2]);
 }
 
-const calculateDays = (finishDate,finishTime) => {
+const calculateDays = (finishDate) => {
 	// let array = finishDate.split(/\D/);
 	// let date = new Date(array[0], --array[1], array[2]);
+	let date = parseDate(finishDate);
 	let today = new Date;
-	let difference = (finishDate - today) / (1000 * 60 * 60 * 24);
+	let difference = (date - today) / (1000 * 60 * 60 * 24);
 	let rounded = Math.floor(difference)+1;
 	return rounded;
 }
 
-const getDays = () => {
-	calculateDays
+// const getDays = () => {
+// 	calculateDays
+// }
+
+const convertDay = (date) => {
+	// console.log(date.getDate());
+	let dateB = parseDate(date);
+	let converted = `${dateB.getDate()} - ${dateB.getMonth()+1} - ${dateB.getFullYear()}`
+	return converted;
 }
 
 
-
-function createTable() {
-	let display = document.getElementById("display")
-	display.innerHTML = "";
-	let table = document.createElement("TABLE");
-	table.innerHTML = "<tr><th>Name</th><th>Start</th><th>Finish</th><th>Days left</th><th>Completed</th></tr>";
-	tasks = tasks.sort((a,b) => a.startDate - b.startDate);
-
-	for (let i=0; i<tasks.length; i++) {
-		let tr = document.createElement("TR");
-		tr.setAttribute("id",`${i}task`);
-
-		let days = calculateDays(tasks[i].finishDate,tasks[i].finishTime);
-		days = isNaN(days) ? "" : days;
-
-		let trContent = `
-		<tr>
-		  <td>${tasks[i].name}</td>
-		  <td>${tasks[i].startDate.toString()} ${tasks[i].startTime}</td>
-		  <td>${tasks[i].finishDate.toString()} ${tasks[i].finishTime}</td>
-		  <td>${days}</td>
-		  <td></td>
-		</tr>`;
-		tr.innerHTML = trContent;
-
-		styleCompleted(tr.children[4]);
-		styleLate(days,tr);
-
-		table.appendChild(tr);
-
-		let trDesc = document.createElement("TR");
-		let trDescContent = tasks[i].desc;
-		trDesc.innerHTML = `<td colspan="5">trDescContent</td>`;
-		trDesc.setAttribute("class","hidden")
-		table.appendChild(trDesc);
-
-	}
-	display.appendChild(table);
-	addListeners();
-}
 
 const addListeners = () => {
 	let cellsName = document.querySelectorAll("td:first-child");
@@ -164,6 +137,52 @@ const clearAll = () => {
 	localStorage.removeItem('storedTasks')
 	display.innerHTML = "";
 }
+
+const createTable = (() => {
+	let display = document.getElementById("display")
+	display.innerHTML = "";
+	let table = document.createElement("TABLE");
+	table.innerHTML = "<tr><th>Name</th><th>Start</th><th>Finish</th><th>Days left</th><th>Completed</th></tr>";
+	tasks = tasks.sort((a,b) => a.startDate - b.startDate);
+
+	for (let i=0; i<tasks.length; i++) {
+		let tr = document.createElement("TR");
+		tr.setAttribute("id",`${i}task`);
+
+		// console.log(tasks[i].finishDate);
+		// console.log(typeof(tasks[i].finishDate));
+		let days = calculateDays(tasks[i].finishDate);
+		days = isNaN(days) ? "" : days;
+		let startDate = convertDay(tasks[i].startDate);
+		let finishDate = convertDay(tasks[i].finishDate);
+
+		let trContent = `
+		<tr>
+		  <td>${tasks[i].name}</td>
+		  <td>${startDate} ${tasks[i].startTime}</td>
+		  <td>${finishDate} ${tasks[i].finishTime}</td>
+		  <td>${days}</td>
+		  <td></td>
+		</tr>`;
+		tr.innerHTML = trContent;
+
+		styleCompleted(tr.children[4]);
+		styleLate(days,tr);
+
+		table.appendChild(tr);
+
+		let trDesc = document.createElement("TR");
+		let trDescContent = tasks[i].desc;
+		trDesc.innerHTML = `<td colspan="5">trDescContent</td>`;
+		trDesc.setAttribute("class","hidden")
+		table.appendChild(trDesc);
+
+	}
+	display.appendChild(table);
+	addListeners();
+})()
+
+// createTable();
 
 
 

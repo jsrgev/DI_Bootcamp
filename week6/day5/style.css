@@ -16,13 +16,13 @@ table {
   counter-reset: rowNumber;
 }
 
-tr::before {
+/*tr::before {
   display: table-cell;
   counter-increment: rowNumber;
   content: counter(rowNumber) ".";
   padding-right: 0.3em;
   text-align: right;
-}
+}*/
 
 td {
 	border:1px solid black;
