@@ -4,23 +4,34 @@
 	<meta charset="utf-8">
 	<title>To-Do List</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">	
 </head>
 <body>
 	<h1>To-Do List</h1>
-	<label>Task:</label>
-	<input id="inputName">
-	<label>Start by:</label>
-	<input id="inputStartDate" type="date">
-	<input id="inputStartTime" type="time">
-	<label>Finish by:</label>
-	<input id="inputFinishDate" type="date">
-	<input id="inputFinishTime" type="time">
-	<label>Description:</label>
-	<textarea id="inputDesc"></textarea>
-	<button onclick="addTask()">Add task</button>
-	<button onclick="clearAll()">Clear all tasks</button>
-	<div id="display">
+		<button onclick="clearAll()">Clear all tasks</button>
+
+	<div id="mainInputs">
+		<div class="header"></div>
+		<div></div>
+		<div class="header name">Task</div>
+		<div class="header start">Start</div>
+		<div class="header finish">Finish</div>
+		<div class="header">Days Left</div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="new"><input class="name" type="text"></div>
+		<div class="new"><input class="startDate" type="date" placeholder="dd - mm - yyyy"></div>
+		<div class="new"><input class="startTime" type="time"></div>
+		<div class="new"><input class="finishDate" type="date"></div>
+		<div class="new"><input class="finishTime" type="time"></div>
+		<div></div>
+		<div><button onclick="addTask('new')"><i class="fas fa-plus"></i>
+</button></div>
+		<div class="new desc"><input class="new desc"  type="text" placeholder="Description"></div>
 	</div>
+
+	<div id="list"></div>
 
 
 

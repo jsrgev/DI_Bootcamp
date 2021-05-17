@@ -1,55 +1,37 @@
-// let inputStartDate = document.getElementById('inputStartDate');
-// inputStartDate.value = new Date;
-// inputStartDate.value = new Date().toDateInputValue();
-
-// Date.prototype.toDateInputValue = (function() {
-//     var local = new Date(this);
-//     local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-//     return local.toJSON().slice(0,10);
-// });
-
-// document.getElementById('datePicker').value = new Date().toDateInputValue();
-
 let tasks = localStorage.getItem('storedTasks') ? JSON.parse(localStorage.getItem('storedTasks')) : [];
-// for (let task of tasks) {
-// 	// let datee e= 
-// 	task.startDate = new Date(parseInt(task.startDate));
-// 	task.finishDate = new Date(parseInt(task.finishDate));
-// }
 
-function addTask() {
-	let startDate = document.getElementById('inputStartDate').value;
-	// let parsedStartDate = parseDate(startDate);
-	// console.log(parsedStartDate);
-	let finishDate = document.getElementById('inputFinishDate').value;
-	// let parsedFinishDate = parseDate(finishDate);
+function addTask(section) {
+	let name = document.querySelector(`.${section} .name`).value;
+	if (name === "") {
+		alert("Please enter a task name");
+		return;
+	}
 	let task = {
-		name: document.getElementById('inputName').value,
-		startDate: startDate,
-		startTime: document.getElementById('inputStartTime').value,
-		finishDate: finishDate,
-		finishTime: document.getElementById('inputFinishTime').value,
-		desc: document.getElementById('inputDesc').value,
-		completed: false
+		name: name,
+		startDate: document.querySelector(`.${section} .startDate`).value,
+		startTime: document.querySelector(`.${section} .startTime`).value,
+		finishDate: document.querySelector(`.${section} .finishDate`).value,
+		finishTime: document.querySelector(`.${section} .finishTime`).value,
+		desc: document.querySelector(`.${section} .desc`).value,
+		completed: false	
 	};
-	// console.dir(document.getElementById('inputDate').value)
-	tasks.push(task);
+	if (section == "new") {
+		tasks.push(task);
+	} else {
+		number = section.substr(2);
+		tasks[number]= task;
+	}
 	localStorage.setItem('storedTasks',JSON.stringify(tasks));
 	createTable();
 }
 
-// s is format y-m-d
-// Returns a date object for 00:00:00 local time
-// on the specified date
 
-function parseDate(s) {
-  var b = s.split(/\D/);
+function parseDate(date) {
+  var b = date.split(/\D/);
   return new Date(b[0], --b[1], b[2]);
 }
 
 const calculateDays = (finishDate) => {
-	// let array = finishDate.split(/\D/);
-	// let date = new Date(array[0], --array[1], array[2]);
 	let date = parseDate(finishDate);
 	let today = new Date;
 	let difference = (date - today) / (1000 * 60 * 60 * 24);
@@ -57,61 +39,116 @@ const calculateDays = (finishDate) => {
 	return rounded;
 }
 
-// const getDays = () => {
-// 	calculateDays
-// }
+
 
 const convertDay = (date) => {
-	// console.log(date.getDate());
 	let dateB = parseDate(date);
 	let converted = `${dateB.getDate()} - ${dateB.getMonth()+1} - ${dateB.getFullYear()}`
 	return converted;
 }
 
+const clickOut = () => {
+	let hoverItems = document.querySelectorAll(":hover")
+	let clickedItem = hoverItems[hoverItems.length-1];
+	if (clickedItem.nodeName !== "INPUT") {
+		document.removeEventListener("click",clickOut);
+		createTable();
+	}
+}
 
+const editDiv = (event) => {
+	document.addEventListener("click",clickOut);
+
+  	let number = event.target.classList[0].substr(2);
+	let desc = document.querySelector(`.t-${number}.desc`);
+	if (desc.classList.contains("hidden")) {
+		desc.classList.remove("hidden")
+	}
+	let divs = document.querySelectorAll(`.t-${number}.editable`)
+	for (let div of divs) {
+		div.removeEventListener("dblclick",editDiv);
+		let label = div.classList[2];
+		let type;
+		if (label === "name" || label === "desc") {
+			type = "text";
+		} else if (label === "startDate" || label === "finishDate") {
+			type = "date";
+		} else {
+			type = "time";
+		}
+ 		div.innerHTML=`
+		  <input type="${type}" class="${label}" value="${tasks[number][label]}">
+		`
+	}
+	let save = document.querySelector(`.t-${number}.save`);
+	save.innerHTML = `<button onclick="addTask('t-${number}')"><i class="far fa-save"></i></button>`
+}
+
+const deleteDiv = (event) => {
+	let number = event.target.closest(".delete").classList[0].substr(2);
+	let answer = confirm("Are you sure you want to delete this task?");
+	if (answer) {
+		tasks.splice(number,1);
+		updateStorage();
+		createTable();
+	}
+}
 
 const addListeners = () => {
-	let cellsName = document.querySelectorAll("td:first-child");
-	for (let cell of cellsName) {
-		cell.addEventListener("click",toggleDesc);
+	let nameDivs = document.querySelectorAll(".name");
+	for (let div of nameDivs) {
+		div.addEventListener("click",toggleDesc);
 	}
-	let cellsCompleted = document.querySelectorAll("td:last-child")
-	for (let cell of cellsCompleted) {
-		cell.addEventListener("click",toggleCompleted);
+	let checkboxDivs = document.querySelectorAll(".checkbox")
+	for (let div of checkboxDivs) {
+		div.addEventListener("click",toggleCompleted);
+	}
+	let editableDivs = document.querySelectorAll(".editable")
+	for (let div of editableDivs) {
+		div.addEventListener("dblclick",editDiv);
+	}
+	let deleteDivs = document.querySelectorAll(".delete")
+	for (let div of deleteDivs) {
+		div.addEventListener("click",deleteDiv);
 	}
 }
 
 const toggleDesc = (event) => {
-	let row = event.target.parentNode.nextElementSibling;
-	row.classList.toggle("hidden");
+	let number = event.target.closest("div").classList[0];
+	let desc = document.querySelector(`.${number}.desc`)
+	if (desc.textContent !== "" && desc.childElementCount == 0) {
+		desc.classList.toggle("hidden");
+		let icon = document.querySelector(`.${number}.name i`);
+		if (icon.classList.contains("fa-angle-down")) {
+			icon.className = "fas fa-angle-up";
+		} else if (icon.classList.contains("fa-angle-up")) {
+			icon.className = "fas fa-angle-down";
+		}
+	}
 }
 
 const toggleCompleted = (event) => {
-	let td = event.target;
-	let number = td.parentNode.id[0];
+	let number = event.target.closest(".checkbox").classList[0].substr(2);
 	tasks[number].completed = !tasks[number].completed;
 	updateStorage();
-	styleCompleted(td);
+	styleCompleted(number);
 }
 
-const styleCompleted = (td) => {
-	let tr = td.parentNode;
-	let number = tr.id[0];
-	td.textContent = tasks[number].completed ? "✓" : "";
+const styleCompleted = (number) => {
+	let divs = document.querySelectorAll(`.t-${number}`);
+	let remaining = document.querySelector(`.t-${number}.remaining`);
 	if (tasks[number].completed) {
-		td.parentNode.classList.add("completed");
-		// console.log(td.parentNode);
-		// console.log(td.previousSiblingNode);
-		// td.previousElementSibling.textContent = "";
-		// td.parentNode.nextElementSibling.classList.add("completed");
+		remaining.classList.add("invisible");
+		for (let item of divs) {
+			item.classList.add("completed");
+		}
 	} else {
-		td.parentNode.classList.remove("completed");
-		// console.log(td.parentNode);
-		// td.parentNode.nextElementSibling.classList.remove("completed");
+		remaining.classList.remove("invisible");
+		for (let item of divs) {
+			item.classList.remove("completed");
+		}
 	}
-	let days = td.previousElementSibling.textContent;
-	// console.log(days);
-	styleLate(days,tr);
+	styleLate(number);
 }
 
 const updateStorage = () => {
@@ -119,77 +156,58 @@ const updateStorage = () => {
 }
 
 
-const styleLate = (days,tr) => {
-	let number = tr.id[0];
+const styleLate = (number) => {
+	let days = document.querySelector(`.t-${number}.remaining`).textContent;
 	let completed = tasks[number].completed;
-	if (completed) {
-		tr.classList.remove("late");
+	let divs = document.querySelectorAll(`.t-${number}`);
+	for (let item of divs) {
+		if (!completed && days < 0) {
+			item.classList.add("late");
 		} else {
-			if (days < 0) {
-				tr.classList.add("late");
+			item.classList.remove("late")
 		}
-	}		
+	}
+}		
 
-}
 
 const clearAll = () => {
 	tasks = [];
 	localStorage.removeItem('storedTasks')
-	display.innerHTML = "";
+	list.innerHTML = "";
 }
 
 const createTable = () => {
-	let display = document.getElementById("display")
-	display.innerHTML = "";
-	let table = document.createElement("TABLE");
-	table.innerHTML = "<tr><th>Name</th><th>Start</th><th>Finish</th><th>Days left</th><th>Completed</th></tr>";
+	let list = document.getElementById("list")
+	list.innerHTML = "";
 	tasks = tasks.sort((a,b) => a.startDate - b.startDate);
 
 	for (let i=0; i<tasks.length; i++) {
-		let tr = document.createElement("TR");
-		tr.setAttribute("id",`${i}task`);
 
-		// console.log(tasks[i].finishDate);
-		// console.log(typeof(tasks[i].finishDate));
-		let days = calculateDays(tasks[i].finishDate);
-		days = isNaN(days) ? "" : days;
-		// let startDate = convertDay(tasks[i].startDate);
-		startDate = tasks[i].startDate == "" ? "" : convertDay(tasks[i].startDate);
+		let startDate = tasks[i].startDate == "" ? "" : convertDay(tasks[i].startDate);
+		let finishDate = tasks[i].finishDate == "" ? "" : convertDay(tasks[i].finishDate);
+		let days = tasks[i].finishDate == "" ? "" : calculateDays(tasks[i].finishDate);
+		let alternate = i%2==0 ? " alternate" : "";
+		let arrow = tasks[i].desc === "" ? "" : ` <i class="fas fa-angle-down"></i>`;
+		let content = `
+		  <div class="t-${i} checkbox${alternate}"><i class="far fa-circle"></i><i class="far fa-check-circle"></i></div>
+		  <div class="t-${i} delete${alternate}"><i class="far fa-trash-alt"></i></div>
+		  <div class="t-${i} editable name${alternate}">${tasks[i].name}${arrow}</div>
+		  <div class="t-${i} editable startDate${alternate}">${startDate}</div>
+		  <div class="t-${i} editable startTime${alternate}">${tasks[i].startTime}</div>
+		  <div class="t-${i} editable finishDate ${alternate}">${finishDate}</div>
+		  <div class="t-${i} editable finishTime${alternate}">${tasks[i].finishTime}</div>
+		  <div class="t-${i} remaining${alternate}">${days}</div>
+		  <div class="t-${i} save"></div>
+		  <div class="t-${i} editable desc hidden">${tasks[i].desc}</div>
+		`;
+		list.insertAdjacentHTML("beforeend", content);
 
-
-
-		let finishDate = convertDay(tasks[i].finishDate);
-		// finishDate = isNaN(finishDate) ? "" : finishDate;
-		finishDate = tasks[i].finishDate == "" ? "" : convertDay(tasks[i].finishDate);
-
-		let trContent = `
-		<tr>
-		  <td>${tasks[i].name}</td>
-		  <td>${startDate} ${tasks[i].startTime}</td>
-		  <td>${finishDate} ${tasks[i].finishTime}</td>
-		  <td>${days}</td>
-		  <td></td>
-		</tr>`;
-		tr.innerHTML = trContent;
-
-		styleCompleted(tr.children[4]);
-		styleLate(days,tr);
-
-		table.appendChild(tr);
-
-		let trDesc = document.createElement("TR");
-		let trDescContent = tasks[i].desc;
-		trDesc.innerHTML = `<td colspan="5">trDescContent</td>`;
-		trDesc.setAttribute("class","hidden")
-		table.appendChild(trDesc);
-
+		styleCompleted(i);
 	}
-	display.appendChild(table);
 	addListeners();
 }
 
 createTable();
-
 
 
 
