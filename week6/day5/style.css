@@ -7,9 +7,14 @@ body {
 	padding: 2rem;
 }
 
-body, input {
+body, input, button {
 	font-family: calibri;
 	font-size: 16px;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 0;
 }
 
 .header {
@@ -38,8 +43,12 @@ body, input {
 	grid-template-columns: 1.5em 1.5em 300px 7.2em 6em 7.2em 6em 4em 4em;
 	width: 100%;
 	gap:10px 30px;
+}
+
+#mainInputs,#list,#graph {
 	margin-top:1rem;
 }
+
 
 input {
 	width:100%;
@@ -118,3 +127,24 @@ xinput[type="time"]::-webkit-calendar-picker-indicator {
 .alternate {
 	/*background-color: aliceblue;*/
 }
+
+
+#graph {
+	display: grid;
+	width: 1050px;
+	grid-template-columns: repeat(7,150px);
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+}
+
+.task {
+	position: absolute;
+	background-color: aquamarine;
+	border-radius: 30px;
+}
+
+
+
+
+
