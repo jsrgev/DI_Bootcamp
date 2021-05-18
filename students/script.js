@@ -12,10 +12,17 @@ const getInput = () => {
 	displayItems();
 }
 
+const mapArray = (array) => {
+	let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+	let newArray = array.map((a,i) => `${days[i]} ${a}`);
+	return newArray;
+}
+
 const displayItems = () => {
 	let display = document.getElementById("display");
 	display.innerHTML = "";
-	for (let item of array) {
+	let newArray = mapArray(array);
+	for (let item of newArray) {
 		let div = document.createElement("div");
 		div.innerText = item;
 		display.appendChild(div);
@@ -41,9 +48,6 @@ const createElements = (() => {
 
 let array = [];
 
-// const sayHello = () => {
-// 	console.log("heello");
-// }
 
 
 
