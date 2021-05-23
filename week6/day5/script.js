@@ -179,8 +179,9 @@ const clearAll = () => {
 const createTable = () => {
 	let list = document.getElementById("list")
 	list.innerHTML = "";
-	tasks = tasks.sort((a,b) => a.startDate - b.startDate);
-
+	console.log(tasks);
+	tasks = tasks.sort((a,b) => parseDate(a.startDate) - parseDate(b.startDate));
+	console.log(tasks);
 	for (let i=0; i<tasks.length; i++) {
 
 		let startDate = tasks[i].startDate == "" ? "" : convertDay(tasks[i].startDate);
@@ -210,7 +211,7 @@ const createTable = () => {
 createTable();
 
 const openGraph = () => {
-	
+
 }
 
 

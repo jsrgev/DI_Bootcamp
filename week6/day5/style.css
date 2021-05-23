@@ -132,10 +132,18 @@ xinput[type="time"]::-webkit-calendar-picker-indicator {
 #graph {
 	display: grid;
 	width: 1050px;
-	grid-template-columns: repeat(7,150px);
+	grid-template-columns: repeat(7,120px);
 	position: relative;
 	text-align: center;
-	overflow: hidden;
+	/*overflow: hidden;*/
+}
+
+#graph div {
+    border: 1px solid gray;
+}
+
+#graph div:not(:first-child) {
+	border-left: none;
 }
 
 .task {
