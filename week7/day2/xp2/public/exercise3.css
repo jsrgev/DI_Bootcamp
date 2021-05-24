@@ -1,0 +1,17 @@
+body {
+	font-family: calibri;
+	background-image: linear-gradient(to right,aliceblue,lightyellow);
+	height:100vh;
+}
+
+h2 {
+	color:turquoise;
+	font-size: 1.8rem;
+	text-shadow: 1px 1px 1px gray;
+	text-align: center;
+}
+
+button {
+	margin: auto;
+	display: block;
+}
