@@ -10,10 +10,10 @@ let sum = array.reduce((sum,item) => {
 console.log(sum);
 
 let total = 0;
-for (let i=1; i<array.length; i++) {
-	total += (array[i-1] == ">" ? 1 : -1);
+for (let i=0; i<array.length; i++) {
+	total += (array[i] == ">" ? 1 : -1);
 	if (total === -1) {
-		console.log(i);
+		console.log(i+1);
 		return;
 	}
 } 
