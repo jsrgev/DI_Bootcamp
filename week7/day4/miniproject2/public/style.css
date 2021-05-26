@@ -1,0 +1,29 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	margin: 0;
+	padding: 30px 40px;
+	font-family: calibri;
+}
+
+h2 {
+	font-size: 1.2rem;
+	text-align: center;
+	margin: 0;
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+    justify-items: center;
+}
+main > div {
+	width: 20rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 5px;
+    align-content: start;
+}

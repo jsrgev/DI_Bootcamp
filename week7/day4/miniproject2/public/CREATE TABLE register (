@@ -1,0 +1,18 @@
+CREATE TABLE register (
+    user_id SERIAL PRIMARY KEY,
+    first_name varchar(255),
+    last_name varchar(255),
+    Email varchar(320),
+    username varchar(255),
+	password varchar(255),
+    created_date date,
+    last_login_date date
+);
+
+create table login (
+	user_id integer,
+    username varchar(255),
+	password varchar(255),
+	FOREIGN KEY (user_id) REFERENCES register(user_id),
+	FOREIGN KEY (username) REFERENCES register(username)
+)
