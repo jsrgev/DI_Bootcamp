@@ -1,8 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import PropTypes from 'prop-types'
-import Jumbotron from 'react-bootstrap/Jumbotron'
+import PropTypes from 'prop-types';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Alert from './components/Alert'
+import Alert2 from './components/Alert2'
+import Alert3 from './components/Alert3'
 
 const PrintHello = () => {
   // return <h1>I love React</h1>
@@ -69,6 +71,14 @@ function App() {
     buttonLabel="Go to the official website"
     buttonURL="https://reactjs.org/"
     />
+    <Alert text="OMG! Something really bad has happended!" />
+    <Alert2 text="Alert - true" show={true} />
+    <Alert2 text="Alert - false" show={false} />
+    <Alert3 text="This is a warning alert" color="orange" />
+    <Alert3 text="This is a danger alert" color="red" />
+    <Alert3 text="This is a success alert" color="green" />
+    <Alert3 text="This is a blue alert" color="blue" />
+
   </>
 
   );
