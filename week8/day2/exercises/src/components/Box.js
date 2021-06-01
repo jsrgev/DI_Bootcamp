@@ -1,8 +1,5 @@
 import React from 'react';
 
-
-
-
 const Box = (props) => {
 	// console.log(props);
 	let {language, votes, handleClick} = props;
