@@ -1,0 +1,41 @@
+html {
+	font-size: 18px;
+}
+
+body {
+	margin: 0;
+	padding: 3rem;
+}
+
+.quotecard {
+	margin: 1rem;
+	background: white;
+	border-radius: 10px;
+	padding: 1rem;
+	width: 30rem;
+}
+
+.quote {
+	font-weight: 600;
+}
+
+.author {
+	text-align: right;
+	font-size: .8rem;
+}
+
+button {
+	margin: auto;
+	display: block;
+	color: white;
+	padding: .4rem .5rem;
+}
+
+button:hover {
+	box-shadow: 0 0 2px .5px blue;
+}
+
+.quotecard, button {
+	border-radius: 10px;
+	border: 1px solid lightgray;
+}
