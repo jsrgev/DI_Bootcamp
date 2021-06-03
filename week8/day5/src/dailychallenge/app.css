@@ -1,0 +1,52 @@
+html {
+	font-size: 18px;
+}
+
+body {
+	margin: 0;
+	padding: 3rem;
+}
+
+header>div {
+	background: red;
+	display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    padding: .4rem 1rem;
+	color: white;
+}
+
+header>div>*:first-child {
+    flex-grow: 1;
+}
+
+h1 {
+	margin:  0;
+}
+
+.cards {
+	margin-top: 1rem;
+	display: grid;
+	grid-template-columns: repeat( auto-fit, minmax(150px, 1fr));
+	gap: 15px;
+}
+
+.card {
+	text-align: center;
+	font-size: .6rem;
+}
+
+span {
+	font-weight: 600;
+}
+
+
+.trim {
+	height: 160px;
+	overflow: hidden;
+}
+
+img {
+	width: 140px;
+}
+

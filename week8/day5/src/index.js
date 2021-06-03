@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import App from './miniproject1/App';
+import App from './dailychallenge/App';
 // import DailyChallenge from './DailyChallenge';
 import reportWebVitals from './reportWebVitals';
 
