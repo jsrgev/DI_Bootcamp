@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding: 2rem 3rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: max-content 15rem;
+  grid-gap: .5rem 1rem;
+}

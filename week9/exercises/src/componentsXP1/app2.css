@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 2rem 3rem;
+}
+
+
+form {
+  display: grid;
+  grid-template-columns: 20rem;
+  grid-gap: .5rem 1rem;
+}
+
+#display {
+  display: grid;
+  grid-template-columns: 15rem;
+  grid-gap: .5rem 1rem;
+}
