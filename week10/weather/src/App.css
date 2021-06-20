@@ -1,0 +1,54 @@
+main.MuiContainer-root {
+  display: grid;
+}
+
+.MuiAutocomplete-root {
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+#favoriteicon {
+  position: relative;
+  bottom: -0.15em;
+  left: 1rem;
+}
+
+#favoriteicon:hover {
+  color: red;
+}
+
+#favoriteicon.favorited {
+  color: red;
+}
+
+#today {
+  width: max-content;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /*gap: 1rem 0;*/
+  justify-items: center;
+  align-items: center;
+  }
+
+
+#today img {
+  width: 8rem;
+}
+
+#todaytemp {
+  font-size: 1.5rem;
+}
+
+#today div:last-child {
+  grid-column: span 2;
+  font-size: 1.2rem;
+}
+
+
+#fiveday img {
+  width: 80px;
+}
